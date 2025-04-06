@@ -123,9 +123,8 @@ def get_strategy(player_hand: Hand, dealer: Dealer) -> Action:
         return blackjack_strategy["soft_totals"][sum(card.get_value() for card in player_hand if card.rank != Rank.ACE)][dealer_upcard.rank]
     else:
       if player_hand.total() >= 17: #use total() not sum
-            return Action.S
-        
-        if player_hand.total() <= 8:  #use total() not sum
-            return Action.H
+        return Action.S
+      if player_hand.total() <= 8:  #use total() not sum
+        return Action.H
 
-        return blackjack_strategy["hard_totals"][player_hand.total()][dealer_upcard.rank]  #use total() not sum
+    return blackjack_strategy["hard_totals"][player_hand.total()][dealer_upcard.rank]  #use total() not sum

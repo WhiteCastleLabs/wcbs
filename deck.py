@@ -54,7 +54,6 @@ class Card:
             return 11
         else:
             return int(self.rank.value)
-<<<<<<< HEAD
 
     def get_count(self):
         if self.get_value() >=10:
@@ -63,15 +62,12 @@ class Card:
             return 1
         else:
             return 0
-=======
->>>>>>> upstream/main
     
 type Hand = list[Card]
 
 class Deck:
     cards: list[Card]
     discard_pile: list[Card]
-<<<<<<< HEAD
     num_decks: int
     
     def __init__(self, num_decks: int):  
@@ -81,12 +77,6 @@ class Deck:
         for _ in range(num_decks):
             self.cards.extend([Card(suit, rank) for suit in Suit for rank in Rank])
         self.shuffle()  #shuffle when initializing 
-=======
-    
-    def __init__(self):
-        self.cards = [Card(suit, rank) for suit in Suit for rank in Rank]
-        self.discard_pile = []
->>>>>>> upstream/main
 
     def __str__(self):
         return f"{self.cards}"
@@ -125,7 +115,6 @@ class Hand:
     def place_bet(self, amount: int):
         self.bet = amount
     
-<<<<<<< HEAD
     #if there are multiple aces, only count one as 11
     #simply subtracting 10 will not suffice
     def total(self) -> int:
@@ -134,12 +123,6 @@ class Hand:
         while total > 21 and num_aces > 0:
             total -= 10
             num_aces -= 1
-=======
-    def total(self) -> int:
-        total = sum(self.cards)
-        if total > 21 and any(card.rank == Rank.ACE for card in self.cards):
-            total -= 10
->>>>>>> upstream/main
         return total
     
     def __str__(self) -> str:
