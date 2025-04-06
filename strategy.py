@@ -1,5 +1,5 @@
 from enum import Enum
-from .deck import Rank
+from deck import Rank
 
 class Action(Enum):
     H = "Hit"
